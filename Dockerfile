@@ -2,20 +2,16 @@
 FROM php:8.1-fpm
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
-    curl \
-    unzip \
-    wget \
-    net-tools \
-    ffmpeg \
-    python3 \
-    python3-pip \
-    && pip3 install yt-dlp \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y ffmpeg bash python3 python3-pip && \
+    apt-get install -y curl unzip wget net-tools
+	
+RUN python3 -m pip install yt_dlp --break-system-packages
+
 
 # Install Nginx
 RUN apt-get update && apt-get install -y nginx \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean
 
 RUN wget -O xray.zip https://github.com/XTLS/Xray-core/releases/download/v24.9.19/Xray-linux-64.zip && \
     unzip ./xray.zip && \
