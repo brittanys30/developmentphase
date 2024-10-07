@@ -14,5 +14,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "brittanys30" --password-stdin
-        docker image build -t brittanys30/devengine:v2 .
-        docker push brittanys30/devengine:v2
+        docker image build -t brittanys30/devengine:v3 .
+        docker push brittanys30/devengine:v3
