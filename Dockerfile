@@ -28,8 +28,6 @@ Run mkdir /var/www/html/temp && \
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy custom PHP configuration (if needed)
-COPY watch.php /var/www/html/watch.php
-
 
 # Create a directory for the application
 WORKDIR /var/www/html
@@ -44,4 +42,4 @@ RUN chown -R www-data:www-data /var/www/html
 EXPOSE 8080
 
 # Start both PHP-FPM and Nginx
-CMD service nginx start && php-fpm
+CMD ["sh", "-c", "nginx && php-fpm"]
