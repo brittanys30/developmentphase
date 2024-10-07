@@ -25,7 +25,8 @@ Run mkdir /var/www/html/temp && \
 
 
 # Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx2.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/sites-enabled/default
 
 # Copy custom PHP configuration (if needed)
 
