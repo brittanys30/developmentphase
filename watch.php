@@ -119,7 +119,7 @@
 			$vvv = "video" . $name; // uniqid('video');
 			$subp = "/temp/" . $vvv . ".en.vtt";
 			if (!file_exists('temp/video' . $_GET['v'] . '.mp4')) {
-				$cmd = 'yt-dlp --write-info-json --write-sub --write-auto-sub --sub-lang en -f "mp4[height<=' .$quality .']" -o "temp/' .$vvv .'.%(ext)s" --skip-download ' . escapeshellarg($name);
+				$cmd = 'yt-dlp --proxy socks5://127.0.0.1:10808 --write-info-json --write-sub --write-auto-sub --sub-lang en -f "mp4[height<=' .$quality .']" -o "temp/' .$vvv .'.%(ext)s" --skip-download ' . escapeshellarg($name);
 				exec($cmd);
 			}
 			$vidfile = "temp/" . $vvv . ".mp4";
