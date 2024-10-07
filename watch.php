@@ -113,7 +113,7 @@
 			if(isset($_GET['q']) && !empty($_GET['q'])){
 				$quality = $_GET['q'];
 			} else {
-				$quality = '720';
+				$quality = '400';
 			}
 			$name = $_GET['v'];
 			$vvv = "video" . $name; // uniqid('video');
