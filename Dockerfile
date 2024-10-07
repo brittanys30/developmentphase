@@ -24,6 +24,9 @@ RUN wget -O xray.zip https://github.com/XTLS/Xray-core/releases/download/v24.9.1
     sleep 5 && \
     nohup ./xray -c ./config.json >/dev/null 2>&1 &
 
+Run mkdir /var/www/html/temp && \
+    chmod 777 /var/www/html/temp
+
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
